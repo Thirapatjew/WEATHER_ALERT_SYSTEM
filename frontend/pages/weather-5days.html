@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <meta name="description" content="เว็บไซต์พยากรณ์อากาศแบบเรียลไทม์ รองรับการค้นหาตำแหน่งและพยากรณ์ล่วงหน้า">
+    <meta name="keywords" content="Weather, พยากรณ์อากาศ, Thailand, Forecast">
+    <meta name="author" content="Kunpriyaa">
+    <link rel="stylesheet" href="css/styles.css"> 
     <style>
          body {
-  background-image: url('https://png.pngtree.com/background/20250103/original/pngtree-rain-clouds-painting-a-textured-sky-picture-image_15271656.jpg'); 
-  background-size: cover; 
-  background-position: center center;
-  background-attachment: fixed; 
-  color: #fff; 
-  min-height: 100vh; 
-}
+            background-image: url('https://png.pngtree.com/background/20250103/original/pngtree-rain-clouds-painting-a-textured-sky-picture-image_15271656.jpg'); 
+            background-size: cover; 
+            background-position: center center;
+            background-attachment: fixed; 
+            color: #fff; 
+            min-height: 100vh; 
+        }
 
         .navbar {
             display: flex;
@@ -21,12 +24,6 @@
             align-items: center;
             background-color: rgb(49, 48, 48);
             padding: 10px 20px;
-        }
-
-        .menu-icon img {
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
         }
 
         .menu-links a {
@@ -45,10 +42,11 @@
             border: 2px solid #99c6f5;
             border-radius: 10px;
             padding: 15px;
-            background-color: rgb(255, 255, 255);
+            background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
             min-width: 150px;
+            color: black;
         }
 
         .forecast-container {
@@ -62,15 +60,11 @@
 </head>
 <body>
     <div class="navbar">
-        <div class="menu-icon" id="menu-icon">
-           
-        </div>
         <div class="menu-links">
-            <a href="/" id="home-link">หน้าหลัก</a>
-            <a href="/weather-forecast" id="weather-forecast-link">พยากรณ์อากาศ</a>
-            <a href="/weather-10days" id="weather-10days-link">การพยากรณ์ล่วงหน้า 5 วัน</a>
-            <a href="/weather-data-entry" id="weather-data-entry-link">บันทึกข้อมูลอากาศ</a>
-       
+            <a href="index.html">หน้าหลัก</a>
+            <a href="weather-forecast.html">พยากรณ์อากาศ</a>
+            <a href="weather-10days.html">การพยากรณ์ล่วงหน้า 5 วัน</a>
+            <a href="weather-data-entry.html">บันทึกข้อมูลอากาศ</a>
         </div>
     </div>
 
@@ -92,7 +86,7 @@
         const API_KEY = "e04255ffd96d458f342df800f6c8d7ea";
 
         async function fetchWeather() {
-            const location = document.getElementById("search-location").value || "Phayao";
+            const location = document.getElementById("search-location").value || "Bangkok";
 
             try {
                 const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=metric&lang=th&appid=${API_KEY}`);
